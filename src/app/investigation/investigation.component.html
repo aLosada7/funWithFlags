@@ -1,0 +1,10 @@
+<app-user-login *ngIf="showLogin" (loginResult)="loginResult($event)"></app-user-login>
+
+<app-countries *ngIf="showCountries" [countries]="countries" (goQuiz)="goQuiz()"></app-countries>
+
+<app-user-results *ngIf="showResults" 
+            [tiempoQuiz]="sesionInfo.tiempoQuiz"
+            [respuestasAcertadas]="sesionInfo.respuestasAcertadas"
+            [respuestasFalladas]="sesionInfo.respuestasFalladas"></app-user-results>
+
+<app-quiz *ngIf="showQuiz" [questions]="questions" (quizResult)="quizResult($event)"></app-quiz>

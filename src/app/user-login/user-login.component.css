@@ -1,0 +1,14 @@
+.main-div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  mat-card-actions {
+      text-align: right;
+  }
+
+.mat-form-field {
+    width: 100%;
+}

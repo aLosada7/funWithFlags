@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="column">
+        <h4>Fun with flags</h4>
+    </div>
+    <div class="column text-right" *ngIf="!showAnswers">
+        <h4>Pistas restantes: {{ pistas }}</h4>
+        <h4>{{ time }}</h4>
+    </div>
+</div>
+
+<form [formGroup]="answersForm">
+    <div class="wrapper">
+        <div *ngFor="let question of questions; let i = index" class="component">
+            <mat-card>
+                <mat-card-content class="wrapper">
+                    <h2>Pregunta {{ i+1 }} de 9</h2>
+                    <p *ngIf="showAnswers">Respuesta {{question.answer}}</p>
+                    <div style="text-align: center;">
+                        <img src="assets/flags/{{question.foto}}" class="component-2" height=120 width=140>
+                    </div>
+                    <div class="component-2">
+                        <button mat-raised-button *ngIf="!showAnswers && !question.show" color="primary" (click)="unlockHint($event, question)">Conseguir una pista <mat-icon>help_outline</mat-icon></button>
+                        <p *ngIf="question.show">Help</p>
+                        <mat-radio-group *ngIf="!showAnswers"
+                            aria-labelledby="example-radio-group-label"
+                            class="example-radio-group"
+                            formControlName="question{{i+1}}"
+                            style="white-space: nowrap;"
+                            >
+                            <mat-radio-button class="example-radio-button" *ngFor="let o of question.respuestas" [value]="o" style="padding: 1%;">
+                                {{o.pais}}
+                            </mat-radio-button>
+                            <br />
+                        </mat-radio-group>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</form>
+<div class="text-right">
+    <button mat-button *ngIf="!showAnswers" color="primary" (click)="sendQuiz()">Completar el quiz</button>
+</div>
