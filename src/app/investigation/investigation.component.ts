@@ -34,55 +34,81 @@ export class InvestigationComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.countries = [ {
-      "pais": "Montenegro",
-      "foto": "montenegro.png",
-      "show": false //show hint
-      }, {
-        "pais": "Kosovo",
-        "foto": "kosovo.png",
-        "show": false
-      },{
-        "pais": "Isla de Navidad",
-        "foto": "isladenavidad.jpg",
-        "show": false
-      },{
-        "pais": "Swazilandia",
-        "foto": "swazilandia.png",
-        "show": false
-      },{
-        "pais": "Palau",
-        "foto": "palau.png",
-        "show": false
-      },{
-        "pais": "Uganda",
-        "foto": "uganda.jpg",
-        "show": false
-      },{
-        "pais": "Sierra Leona",
-        "foto": "sierraleona.png",
-        "show": false
-      },{
-        "pais": "Argelia",
-        "foto": "argelia.png",
-        "show": false
-      },{
-        "pais": "Surinam",
-        "foto": "surinam.png",
-        "show": false
-      },{
-        "pais": "Letonia",
-        "foto": "letonia.jpg",
-        "show": false
-      },{
-        "pais": "El Cairo",
-        "foto": "elcairo.png",
-        "show": false
-      },{
-        "pais": "Tanzania",
-        "foto": "tanzania.png",
-        "show": false
-      }];
+    this.countries =[ 
+      { 
+         "pais":"Montenegro",
+         "foto":"montenegro.png",
+         "show":false, //show hint
+       "pista": "Limita por el norte con Bosnia y Herzegovina"
+   
+      },
+      { 
+         "pais":"Kosovo",
+         "foto":"kosovo.png",
+         "show":false,
+       "pista": "País de origen de Dua Lipa"
+      },
+      { 
+         "pais":"Isla de Navidad",
+         "foto":"isladenavidad.jpg",
+         "show":false,
+       "pista": "Santa Claus parece pero no es"
+      },
+      { 
+         "pais":"Swazilandia",
+         "foto":"swazilandia.png",
+         "show":false,
+       "pista": "Frontera con Sudáfrica y Mozambique"
+      },
+      { 
+         "pais":"Palau",
+         "foto":"palau.png",
+         "show":false,
+       "pista": "En Barcelona hay un pabellón con un nombre similar"
+      },
+      { 
+         "pais":"Uganda",
+         "foto":"uganda.jpg",
+         "show":false,
+       "pista": "Los vengadores saben la respuesta"
+      },
+      { 
+         "pais":"Sierra Leona",
+         "foto":"sierraleona.png",
+         "show":false,
+       "pista": "El ébola le ataco duramente"
+      },
+      { 
+         "pais":"Argelia",
+         "foto":"argelia.png",
+         "show":false,
+       "pista": "A solo hora y media de España"
+      },
+      { 
+         "pais":"Surinam",
+         "foto":"surinam.png",
+         "show":false,
+       "pista": "Paramaribo es su capital"
+      },
+      { 
+         "pais":"Letonia",
+         "foto":"letonia.jpg",
+         "show":false,
+       "pista": "País europeo con una capital ambientada por Erasmus"
+      },
+      { 
+         "pais":"El Cairo",
+         "foto":"elcairo.png",
+         "show":false,
+       "pista": "Las piramides estan cerca"
+      },
+      { 
+         "pais":"Tanzania",
+         "foto":"tanzania.png",
+         "show":false,
+       "pista": "Encontraras mucha fauna en este país"
+      }
+   ];
 
       let resultsNumbers=[];
       let entro = false;
