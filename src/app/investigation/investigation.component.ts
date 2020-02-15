@@ -198,6 +198,12 @@ export class InvestigationComponent implements OnInit {
 
     this.sesionService.sendRegister(this.sesionInfo);
 
+    this.sesionService
+    .sendRegister(this.sesionInfo)
+    .then((res) => {
+      console.log(res);
+    });
+
     window.scrollTo(0, 0);
   }
 
