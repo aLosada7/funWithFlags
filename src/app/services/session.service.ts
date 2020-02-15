@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Headers, RequestOptionsArgs, Http } from '@angular/http';
 
 import { tap } from  'rxjs/operators';
-import { Http, Response } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +10,10 @@ import { Http, Response } from '@angular/http';
 export class SessionService {
 
 
-  constructor(private http: Http) { 
+  constructor(private http: HttpClient) { 
   }
 
   sendRegister(register: any) {
-    return this.http.post('/log', register)
-                 .toPromise()
-                 .then(response => response.json())
-                 .catch();
+    return this.http.post('/log', register);
   }
 }
