@@ -279,7 +279,7 @@ class CountriesComponent {
     }
     next() {
         console.log("Time seeing countries: " + this.time);
-        this.goQuiz.emit();
+        this.goQuiz.emit({ tiempoCountries: this.time });
     }
 }
 CountriesComponent.ɵfac = function CountriesComponent_Factory(t) { return new (t || CountriesComponent)(); };
@@ -364,7 +364,7 @@ function InvestigationComponent_app_user_login_0_Template(rf, ctx) { if (rf & 1)
 function InvestigationComponent_app_countries_1_Template(rf, ctx) { if (rf & 1) {
     const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "app-countries", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("goQuiz", function InvestigationComponent_app_countries_1_Template_app_countries_goQuiz_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7); const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r6.goQuiz(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("goQuiz", function InvestigationComponent_app_countries_1_Template_app_countries_goQuiz_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7); const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r6.goQuiz($event); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
@@ -396,7 +396,8 @@ class InvestigationComponent {
             tiempoCountries: '',
             tiempoQuiz: '',
             respuestasAcertadas: '',
-            respuestasFalladas: ''
+            respuestasFalladas: '',
+            date: '',
         };
         this.showLogin = true;
     }
@@ -530,9 +531,10 @@ class InvestigationComponent {
         this.sesionInfo.sexo = event.userData.sexo;
         console.log(this.sesionInfo);
     }
-    goQuiz() {
+    goQuiz(event) {
         this.showCountries = false;
         this.showQuiz = true;
+        this.sesionInfo.tiempoCountries = event.tiempoCountries;
         window.scrollTo(0, 0);
     }
     quizResult(event) {
@@ -541,6 +543,7 @@ class InvestigationComponent {
         this.sesionInfo.tiempoQuiz = event.tiempoQuiz;
         this.sesionInfo.respuestasAcertadas = event.respuestasAcertadas;
         this.sesionInfo.respuestasFalladas = event.respuestasFalladas;
+        this.sesionInfo.date = new Date().toLocaleString();
         console.log(this.sesionInfo);
         this.sesionService.sendRegister(this.sesionInfo);
         window.scrollTo(0, 0);

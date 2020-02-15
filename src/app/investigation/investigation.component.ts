@@ -25,7 +25,8 @@ export class InvestigationComponent implements OnInit {
     tiempoCountries: '',
     tiempoQuiz: '',
     respuestasAcertadas: '',
-    respuestasFalladas: ''
+    respuestasFalladas: '',
+    date: '',
   }
 
   constructor(private sesionService: SessionService) { 
@@ -179,9 +180,11 @@ export class InvestigationComponent implements OnInit {
     console.log(this.sesionInfo);
   }
 
-  goQuiz() {
+  goQuiz(event) {
     this.showCountries = false;
     this.showQuiz = true;
+
+    this.sesionInfo.tiempoCountries = event.tiempoCountries;
 
     window.scrollTo(0, 0);
   }
@@ -193,6 +196,8 @@ export class InvestigationComponent implements OnInit {
     this.sesionInfo.tiempoQuiz = event.tiempoQuiz;
     this.sesionInfo.respuestasAcertadas = event.respuestasAcertadas;
     this.sesionInfo.respuestasFalladas = event.respuestasFalladas;
+
+    this.sesionInfo.date = new Date().toLocaleString();
 
     console.log(this.sesionInfo)
 

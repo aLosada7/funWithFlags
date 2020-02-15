@@ -1,6 +1,6 @@
 <app-user-login *ngIf="showLogin" (loginResult)="loginResult($event)"></app-user-login>
 
-<app-countries *ngIf="showCountries" [countries]="countries" (goQuiz)="goQuiz()"></app-countries>
+<app-countries *ngIf="showCountries" [countries]="countries" (goQuiz)="goQuiz($event)"></app-countries>
 
 <app-user-results *ngIf="showResults" 
             [tiempoQuiz]="sesionInfo.tiempoQuiz"

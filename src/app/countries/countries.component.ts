@@ -28,7 +28,7 @@ export class CountriesComponent implements OnInit {
 
   next() {
     console.log("Time seeing countries: " + this.time);
-    this.goQuiz.emit();
+    this.goQuiz.emit({tiempoCountries: this.time});
   }
 
 }

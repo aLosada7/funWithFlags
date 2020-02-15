@@ -480,7 +480,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "next",
         value: function next() {
           console.log("Time seeing countries: " + this.time);
-          this.goQuiz.emit();
+          this.goQuiz.emit({
+            tiempoCountries: this.time
+          });
         }
       }]);
 
@@ -685,7 +687,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r6.goQuiz();
+          return ctx_r6.goQuiz($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -749,7 +751,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           tiempoCountries: '',
           tiempoQuiz: '',
           respuestasAcertadas: '',
-          respuestasFalladas: ''
+          respuestasFalladas: '',
+          date: ''
         };
         this.showLogin = true;
       }
@@ -915,9 +918,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "goQuiz",
-        value: function goQuiz() {
+        value: function goQuiz(event) {
           this.showCountries = false;
           this.showQuiz = true;
+          this.sesionInfo.tiempoCountries = event.tiempoCountries;
           window.scrollTo(0, 0);
         }
       }, {
@@ -928,6 +932,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.sesionInfo.tiempoQuiz = event.tiempoQuiz;
           this.sesionInfo.respuestasAcertadas = event.respuestasAcertadas;
           this.sesionInfo.respuestasFalladas = event.respuestasFalladas;
+          this.sesionInfo.date = new Date().toLocaleString();
           console.log(this.sesionInfo);
           this.sesionService.sendRegister(this.sesionInfo);
           window.scrollTo(0, 0);
