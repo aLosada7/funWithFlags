@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Headers, RequestOptionsArgs, Http } from '@angular/http';
 
 import { tap } from  'rxjs/operators';
 

@@ -34,7 +34,6 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule,
     NoopAnimationsModule,
     FlexLayoutModule,
     MatFormFieldModule,
