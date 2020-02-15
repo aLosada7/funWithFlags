@@ -86,7 +86,7 @@ export class QuizComponent implements OnInit {
     console.log(this.contadorFalladas);
     console.log("Time quiz countries: " + this.time);
     let finalTime = this.time;
-    this.quizResult.emit({tiempoQuiz: finalTime, respuestasAcertadas: this.contadorAcertadas, respuestasFalladas: this.contadorFalladas});
+    this.quizResult.emit({tiempoQuiz: finalTime, respuestasAcertadas: this.contadorAcertadas, respuestasFalladas: this.contadorFalladas, pistasRestantes: this.pistas});
   }
 
   unlockHint(event, question) {

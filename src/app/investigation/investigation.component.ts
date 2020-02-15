@@ -27,6 +27,7 @@ export class InvestigationComponent implements OnInit {
     respuestasAcertadas: '',
     respuestasFalladas: '',
     date: '',
+    pistasRestantes: ''
   }
 
   constructor(private sesionService: SessionService) { 
@@ -196,6 +197,7 @@ export class InvestigationComponent implements OnInit {
     this.sesionInfo.tiempoQuiz = event.tiempoQuiz;
     this.sesionInfo.respuestasAcertadas = event.respuestasAcertadas;
     this.sesionInfo.respuestasFalladas = event.respuestasFalladas;
+    this.sesionInfo.pistasRestantes = event.pistasRestantes;
 
     this.sesionInfo.date = new Date().toLocaleString();
 

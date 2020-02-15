@@ -13,6 +13,7 @@ export class SessionService {
   }
 
   sendRegister(register: any) {
+    console.log(register);
     return this.http.post('/log', register);
   }
 }
