@@ -31,15 +31,17 @@ res.sendFile(path.join(__dirname+'/dist/elearning-app/index.html'));
 
 app.post('/log', function(req,res) {
     console.log(req.body);
-    res.status(200).json("Updated");
 
-    let body = req.body.userInfo;
+    let body = req.body;
 
     pool.query(
         "INSERT INTO public.log(id, edad, sexo, tiempocountries, tiempoquiz, aciertos, fallos, tiempo) VALUES ('" + body.id + "','" + body.edad + "','" + body.sexo + "'," + body.tiempoCountries + "," + body.tiempoQuiz + "," + body.respuestasAcertadas + "," + body.respuestasFalladas + ",'" + body.date + "');",
         (err, res) => {
-          console.log(err, res);
-          pool.end();
+            console.log(err, res);
+            pool.end();
+            if(!err) {
+                res.status(200).json("Updated");
+            }
         }
       );
 });
