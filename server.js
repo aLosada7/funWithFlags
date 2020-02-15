@@ -18,7 +18,13 @@ const pool = new Pool({
 });
 
 app.get('/*', function(req,res) {
-    
+    pool.query(
+        "INSERT INTO public.log(id, edad, sexo, tiempocountries, tiempoquiz, aciertos, fallos, tiempo) VALUES ('prueba','1','',14,14,14,14,'');",
+        (err, res) => {
+          console.log(err, res);
+          pool.end();
+        }
+      );
 res.sendFile(path.join(__dirname+'/dist/elearning-app/index.html'));
 });
 
