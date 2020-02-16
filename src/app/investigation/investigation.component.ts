@@ -254,7 +254,7 @@ export class InvestigationComponent implements OnInit {
 
     this.sesionInfo.date = new Date().toLocaleString();
 
-    //console.log(this.sesionInfo)
+    console.log(this.sesionInfo)
 
     this.sesionService.sendRegister(this.sesionInfo);
 
