@@ -19,11 +19,15 @@ export class CountriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let time = true;
     this.interval = setInterval(() => {
       if(this.time >= 0) {
         this.time--;
       }else{
-        this.goQuiz.emit({tiempoCountries: 30});
+        if(time == true) {
+          this.goQuiz.emit({tiempoCountries: 30});
+          time = false;
+        }
       }
     },1000)
   }
