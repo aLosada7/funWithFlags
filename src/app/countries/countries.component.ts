@@ -25,7 +25,7 @@ export class CountriesComponent implements OnInit {
         this.time--;
       }else{
         if(time == true) {
-          this.goQuiz.emit({tiempoCountries: 30});
+          this.goQuiz.emit({tiempoCountries: 20});
           time = false;
         }
       }
@@ -34,7 +34,7 @@ export class CountriesComponent implements OnInit {
 
   next() {
     console.log("Time seeing countries: " + this.time);
-    this.goQuiz.emit({tiempoCountries: (30 - this.time)});
+    this.goQuiz.emit({tiempoCountries: (20 - this.time)});
   }
 
 }
