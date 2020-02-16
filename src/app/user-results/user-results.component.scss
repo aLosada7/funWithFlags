@@ -1,3 +1,14 @@
 mat-card {
     text-align: center
 }
+
+mat-card-content {
+    display: flex;
+    flex-direction: row;
+
+    .side {
+        text-align: center;
+        margin: 1%;
+        width: 50%;
+    }
+}

@@ -17,6 +17,8 @@ export class InvestigationComponent implements OnInit {
   showQuiz: boolean;
   showResults: boolean;
 
+  pistasUsadas;
+
   sesionInfo = {
     id: '',
     edad: '',
@@ -94,10 +96,10 @@ export class InvestigationComponent implements OnInit {
        "pista": "Paramaribo es su capital"
       },
       { 
-         "pais":"Letonia",
-         "foto":"letonia.jpg",
+         "pais":"Etiopía",
+         "foto":"etiopia.png",
          "show":false,
-       "pista": "País europeo con una capital ambientada por Erasmus"
+       "pista": "Su capital es Adís Adeba"
       },
       { 
          "pais":"El Cairo",
@@ -146,8 +148,6 @@ export class InvestigationComponent implements OnInit {
         }
       }
 
-    console.log(resultsNumbers);
-
     this.questions = [];
     for (let resultsNumber of resultsNumbers) {
       this.questions.push(this.countries[resultsNumber])
@@ -172,15 +172,12 @@ export class InvestigationComponent implements OnInit {
         posiblesRespuestas[Math.floor(Math.random() * 4)] = numberResponse;
       }
 
-      console.log(posiblesRespuestas);
-
       question.respuestas = [];
 
       for (let posiblesRespuesta of posiblesRespuestas) {
         question.respuestas.push(this.countries[posiblesRespuesta])
       }
 
-      console.log(question);
     }
   
   }
@@ -189,15 +186,11 @@ export class InvestigationComponent implements OnInit {
     this.showLogin = false;
     this.showCountries = true;
 
-    console.log(event.userData.id);
-
-    console.log(this.sesionInfo.id)
     this.sesionInfo.id = event.userData.id;
-    console.log(this.sesionInfo.id)
     this.sesionInfo.edad = event.userData.edad;
     this.sesionInfo.sexo = event.userData.sexo;
 
-    console.log(this.sesionInfo);
+    //console.log(this.sesionInfo);
   }
 
   goQuiz(event) {
@@ -212,16 +205,17 @@ export class InvestigationComponent implements OnInit {
   quizResult(event) {
     this.showResults = true;
 
-    console.log(event)
     this.sesionInfo.tiempoQuiz = event.tiempoQuiz;
     this.sesionInfo.respuestasAcertadas = event.respuestasAcertadas;
     this.sesionInfo.respuestasFalladas = event.respuestasFalladas;
     this.sesionInfo.pistasRestantes = event.pistasRestantes;
     this.sesionInfo.preguntasPista = event.preguntasPista;
 
+    this.pistasUsadas = 3 - parseFloat(this.sesionInfo.pistasRestantes);;
+
     this.sesionInfo.date = new Date().toLocaleString();
 
-    console.log(this.sesionInfo)
+    //console.log(this.sesionInfo)
 
     this.sesionService.sendRegister(this.sesionInfo);
 

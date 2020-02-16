@@ -1,11 +1,19 @@
 <mat-card>
     <mat-card-content>
-        <p> Acertadas: {{ respuestasAcertadas }} </p>
-        <p> Falladas: {{ respuestasFalladas }}</p>
-        <p> Tiempo: {{ tiempoQuiz }}</p>
+        <div class="side">
+        <img src="https://bigbangtheoryla.files.wordpress.com/2009/05/jim_parsons.jpg?w=584" height="250" width="200">
+        </div>
+        <div class="side">
+            <h4>Sheldon está orgulloso de tu desempeño</h4>
 
-        <br />
+            <p> Aciertos: {{ respuestasAcertadas }} </p>
+            <p> Fallos: {{ respuestasFalladas }}</p>
+            <p> Tiempo realizando el quiz: {{ tiempoQuiz }}</p>
+            <p> Pistas usadas: {{ pistas }}</p>
 
-        <p> Muchas gracias por tu tiempo. Te esperamos pronto para la próxima sesión</p>
+            <br />
+
+            <p> Muchas gracias por tu tiempo. Te esperamos pronto para la próxima sesión. Si es tu última vez no nos olvides</p>
+        </div>
     </mat-card-content>
 </mat-card>

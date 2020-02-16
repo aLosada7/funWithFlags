@@ -11,6 +11,7 @@ export class UserResultsComponent implements OnInit {
   @Input() tiempoQuiz;
   @Input() respuestasAcertadas;
   @Input() respuestasFalladas;
+  @Input() pistas;
 
   constructor() { 
   }

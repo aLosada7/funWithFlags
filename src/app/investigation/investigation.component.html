@@ -5,6 +5,13 @@
 <app-user-results *ngIf="showResults" 
             [tiempoQuiz]="sesionInfo.tiempoQuiz"
             [respuestasAcertadas]="sesionInfo.respuestasAcertadas"
-            [respuestasFalladas]="sesionInfo.respuestasFalladas"></app-user-results>
+            [respuestasFalladas]="sesionInfo.respuestasFalladas"
+            [pistas]="pistasUsadas"></app-user-results>
 
 <app-quiz *ngIf="showQuiz" [questions]="questions" (quizResult)="quizResult($event)"></app-quiz>
+
+<app-user-results *ngIf="showResults" 
+            [tiempoQuiz]="sesionInfo.tiempoQuiz"
+            [respuestasAcertadas]="sesionInfo.respuestasAcertadas"
+            [respuestasFalladas]="sesionInfo.respuestasFalladas"
+            [pistas]="pistasUsadas"></app-user-results>
