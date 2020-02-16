@@ -11,7 +11,7 @@ export class CountriesComponent implements OnInit {
 
   @Output() goQuiz;
 
-  time: number = 0;
+  time: number = 30;
   interval;
 
   constructor() { 
@@ -21,14 +21,16 @@ export class CountriesComponent implements OnInit {
   ngOnInit(): void {
     this.interval = setInterval(() => {
       if(this.time >= 0) {
-        this.time++;
+        this.time--;
+      }else{
+        this.goQuiz.emit({tiempoCountries: 30});
       }
     },1000)
   }
 
   next() {
     console.log("Time seeing countries: " + this.time);
-    this.goQuiz.emit({tiempoCountries: this.time});
+    this.goQuiz.emit({tiempoCountries: (30 - this.time)});
   }
 
 }

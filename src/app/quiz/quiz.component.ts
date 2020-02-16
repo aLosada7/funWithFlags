@@ -22,7 +22,7 @@ export class QuizComponent implements OnInit {
   pistas: number = 3;
   preguntasPista = [];
   preguntasConPista: number = 0;
-  time: number = 0;
+  time: number = 60;
   interval;
 
   answersForm: FormGroup;
@@ -39,14 +39,19 @@ export class QuizComponent implements OnInit {
       question6: '',
       question7: '',
       question8: '',
-      question9: ''
+      question9: '',
+      question10: '',
+      question11: '',
+      question12: ''
     });
    }
 
   ngOnInit(): void {
       this.interval = setInterval(() => {
         if(this.time >= 0) {
-          this.time++;
+          this.time--;
+        }else{
+          this.sendQuiz();
         }
       },1000)
   }
@@ -72,6 +77,12 @@ export class QuizComponent implements OnInit {
     "incorrecta. La respuesta correcta era " + this.questions[7].pais;
     this.questions[8].answer = this.answersForm.get('question9').value.pais == this.questions[8].pais ? "correcta" : 
     "incorrecta. La respuesta correcta era " + this.questions[8].pais;
+    this.questions[9].answer = this.answersForm.get('question10').value.pais == this.questions[9].pais ? "correcta" : 
+    "incorrecta. La respuesta correcta era " + this.questions[9].pais;
+    this.questions[10].answer = this.answersForm.get('question11').value.pais == this.questions[10].pais ? "correcta" : 
+    "incorrecta. La respuesta correcta era " + this.questions[10].pais;
+    this.questions[11].answer = this.answersForm.get('question12').value.pais == this.questions[11].pais ? "correcta" : 
+    "incorrecta. La respuesta correcta era " + this.questions[11].pais;
 
     this.respuestas.push(this.answersForm.get('question1').value.pais);
     this.respuestas.push(this.answersForm.get('question2').value.pais);
@@ -82,10 +93,13 @@ export class QuizComponent implements OnInit {
     this.respuestas.push(this.answersForm.get('question7').value.pais);
     this.respuestas.push(this.answersForm.get('question8').value.pais);
     this.respuestas.push(this.answersForm.get('question9').value.pais);
+    this.respuestas.push(this.answersForm.get('question10').value.pais);
+    this.respuestas.push(this.answersForm.get('question11').value.pais);
+    this.respuestas.push(this.answersForm.get('question12').value.pais);
 
     let i;
     let consecAcert = 0, acert = 0, consecFall = 0, fall = 0;
-    for(i = 0; i < 9; i++) {
+    for(i = 0; i < 12; i++) {
       if(this.respuestas[i] == this.questions[i].pais){
         if(this.preguntasPista.find(element => element == i) >= 0 ) this.preguntasConPista++; 
       }
@@ -114,12 +128,16 @@ export class QuizComponent implements OnInit {
     this.answersForm.get('question7').value.pais == this.questions[6].pais ? this.contadorAcertadas++ : this.contadorFalladas++;
     this.answersForm.get('question8').value.pais == this.questions[7].pais ? this.contadorAcertadas++ : this.contadorFalladas++;
     this.answersForm.get('question9').value.pais == this.questions[8].pais ? this.contadorAcertadas++ : this.contadorFalladas++;
+    this.answersForm.get('question10').value.pais == this.questions[9].pais ? this.contadorAcertadas++ : this.contadorFalladas++;
+    this.answersForm.get('question11').value.pais == this.questions[10].pais ? this.contadorAcertadas++ : this.contadorFalladas++;
+    this.answersForm.get('question12').value.pais == this.questions[11].pais ? this.contadorAcertadas++ : this.contadorFalladas++;
+
 
     console.log(this.contadorAcertadas);
     console.log(this.contadorFalladas);
     console.log("Preguntas con pista "+ this.preguntasConPista)
     console.log("Time quiz countries: " + this.time);
-    let finalTime = this.time;
+    let finalTime = (60- this.time);
     this.quizResult.emit({tiempoQuiz: finalTime, 
                       respuestasAcertadas: this.contadorAcertadas, 
                       respuestasFalladas: this.contadorFalladas, 

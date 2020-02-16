@@ -1,26 +1,29 @@
 <div class="row" *ngIf="!showAnswers">
     <div class="column">
-        <h4>Fun with flags</h4>
-        <p>Es tu momento. Arrasa con lo que veas y generoso no seas</p>
+        <h4>FUN WITH FLAGS</h4>
+        <p>Es tu momento. Tienes 1 minuto. Arrasa con lo que veas y generoso no seas</p>
     </div>
     <div class="column text-right" *ngIf="!showAnswers">
         <h4>Pistas restantes: {{ pistas }}</h4>
-        <h4>{{ time }}</h4>
+        <h2>{{ time }}</h2>
     </div>
 </div>
 
+<div class="text-right">
+    <button mat-button *ngIf="!showAnswers" color="primary" (click)="sendQuiz()">Completar el quiz</button>
+</div>
 <form [formGroup]="answersForm">
     <div class="wrapper">
         <div *ngFor="let question of questions; let i = index" class="component">
             <mat-card>
                 <mat-card-content class="wrapper">
-                    <h2>Pregunta {{ i+1 }} de 9</h2>
+                    <h2>Pregunta {{ i+1 }} de 12</h2>
                     <p *ngIf="showAnswers">Respuesta {{question.answer}}</p>
                     <div style="text-align: center;">
                         <img src="assets/flags/{{question.foto}}" class="component-2" height=120 width=140>
                     </div>
                     <div class="component-2">
-                        <button mat-raised-button *ngIf="!showAnswers && !question.show" color="primary" (click)="unlockHint($event, question, i)">Conseguir una pista <mat-icon>help_outline</mat-icon></button>
+                        <button mat-raised-button *ngIf="!showAnswers && !question.show" color="primary" (click)="unlockHint($event, question, i)">Desvela una pista <mat-icon>help_outline</mat-icon></button>
                         <p *ngIf="question.show">{{ question.pista }}</p>
                         <mat-radio-group *ngIf="!showAnswers"
                             aria-labelledby="example-radio-group-label"

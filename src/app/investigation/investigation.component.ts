@@ -43,53 +43,53 @@ export class InvestigationComponent implements OnInit {
 
     this.countries =[ 
       { 
-         "pais":"Montenegro",
-         "foto":"montenegro.png",
+         "pais":"Antwerp",
+         "foto":"amberes.png",
          "show":false, //show hint
-       "pista": "Limita por el norte con Bosnia y Herzegovina"
+       "pista": "Tomorrowland es la pista"
    
       },
       { 
-         "pais":"Kosovo",
-         "foto":"kosovo.png",
+         "pais":"Libia",
+         "foto":"libia.png",
          "show":false,
-       "pista": "País de origen de Dua Lipa"
+        "pista": "País en época de guerra"
       },
       { 
-         "pais":"Isla de Navidad",
-         "foto":"isladenavidad.jpg",
+         "pais":"Camboya",
+         "foto":"camboya.png",
          "show":false,
-       "pista": "Santa Claus parece pero no es"
+       "pista": "Nom Pen es su capital."
       },
       { 
-         "pais":"Swazilandia",
-         "foto":"swazilandia.png",
+         "pais":"Belize",
+         "foto":"belize.png",
          "show":false,
-       "pista": "Frontera con Sudáfrica y Mozambique"
+       "pista": "País de Centro América independizado"
       },
       { 
-         "pais":"Palau",
-         "foto":"palau.png",
+         "pais":"Hawaii",
+         "foto":"hawaii.png",
          "show":false,
-       "pista": "En Barcelona hay un pabellón con un nombre similar"
+       "pista": "Te gustaría estar en sus maravillosas playas"
       },
       { 
-         "pais":"Uganda",
-         "foto":"uganda.jpg",
+         "pais":"Dominica",
+         "foto":"dominica.png",
          "show":false,
-       "pista": "Los vengadores saben la respuesta"
+       "pista": "Isla formada por 10 parroquias"
       },
       { 
-         "pais":"Sierra Leona",
-         "foto":"sierraleona.png",
+         "pais":"Qatar",
+         "foto":"qatar.png",
          "show":false,
-       "pista": "El ébola le ataco duramente"
+       "pista": "País machista"
       },
       { 
-         "pais":"Argelia",
-         "foto":"argelia.png",
+         "pais":"Islas Marianas",
+         "foto":"nothermarian.png",
          "show":false,
-       "pista": "A solo hora y media de España"
+       "pista": "Es un Estado libre asociado a EE.UU."
       },
       { 
          "pais":"Surinam",
@@ -104,45 +104,80 @@ export class InvestigationComponent implements OnInit {
        "pista": "Su capital es Adís Adeba"
       },
       { 
-         "pais":"El Cairo",
-         "foto":"elcairo.png",
+         "pais":"Kazajistan",
+         "foto":"kazajistan.jpg",
          "show":false,
-       "pista": "Las piramides estan cerca"
+       "pista": "Pertenecío a la antigua República Soviética. Su capital es Ástana"
       },
       { 
-         "pais":"Tanzania",
-         "foto":"tanzania.png",
+         "pais":"Groenlandia",
+         "foto":"groenlandia.jpg",
          "show":false,
-       "pista": "Encontraras mucha fauna en este país"
+       "pista": "Se sitúa próxima a Dinamarca"
       },
       { 
-        "pais":"Okayama",
-        "foto":"okayama.png",
+        "pais":"Nepal",
+        "foto":"nepal.jpg",
         "show":false,
-      "pista": "Original de Japón"
+      "pista": "Situada justo debajo de China"
       },
       { 
-        "pais":"Albania",
-        "foto":"albania.jpg",
+        "pais":"Seychelles",
+        "foto":"seychelles.png",
         "show":false,
-      "pista": "Grecia y otros países de este juego le hacen frontera."
+      "pista": "Islas"
     },
     { 
       "pais":"Sri Lanka",
       "foto":"srilanka.jpg",
       "show":false,
     "pista": "Isla asiática"
-  }
+  },
+  { 
+    "pais":"Santa Lucía",
+    "foto":"santalucia.jpg",
+    "show":false,
+  "pista": "Recemos"
+},
+{ 
+  "pais":"Kiribati",
+  "foto":"kiribati.jpg",
+  "show":false,
+"pista": "El pajáro es un símbolo mítico de países de Oceanía"
+},
+{ 
+  "pais":"Somalia",
+  "foto":"somalia.png",
+  "show":false,
+"pista": "País en el cuerno de África"
+},
+{ 
+  "pais":"Emirato C. Del Norte",
+  "foto":"caucasian.png",
+  "show":false,
+"pista": "Territorio que pertenecío al islam durante un breve periodo de tiempo"
+},
+{ 
+  "pais":"Ciudad del Vaticano",
+  "foto":"vatican.png",
+  "show":false,
+"pista": "Pequeña ciudad dónde vive el Papa"
+},{ 
+  "pais":"Leichtesntein",
+  "foto":"leichtesntein.png",
+  "show":false,
+"pista": "España endoso la mayor victoria de su historia a este país"
+}
    ];
 
       let resultsNumbers=[];
       let entro = false;
 
       let i;
-      for (i  = 0; i < 9; i++){
+      for (i  = 0; i < 12; i++){
         entro = false;
         while(!entro){
-          let number = Math.floor(Math.random() * 15);
+          let number = Math.floor(Math.random() * 18);
           if (resultsNumbers.indexOf(number) < 0) {
             resultsNumbers.push(number);
             entro = true;
@@ -161,7 +196,7 @@ export class InvestigationComponent implements OnInit {
       let resultsNumbers=[];
       for (i  = 0; i < 4; i++){
         while(!entro){
-          let number = Math.floor(Math.random() * 15);
+          let number = Math.floor(Math.random() * 18);
           if (posiblesRespuestas.indexOf(number) < 0) {
             posiblesRespuestas.push(number);
             break;
