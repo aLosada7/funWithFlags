@@ -51,6 +51,7 @@ export class QuizComponent implements OnInit {
         if(this.time >= 0) {
           this.time--;
         }else{
+          console.log("aqui");
           this.sendQuiz();
         }
       },1000)
