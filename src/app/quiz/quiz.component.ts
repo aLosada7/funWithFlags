@@ -47,12 +47,16 @@ export class QuizComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    let sendQuiz = true;
       this.interval = setInterval(() => {
         if(this.time >= 0) {
           this.time--;
         }else{
-          console.log("aqui");
-          this.sendQuiz();
+          if(sendQuiz == true) {
+            this.sendQuiz();
+            sendQuiz = false
+          }
+          
         }
       },1000)
   }
