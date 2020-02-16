@@ -11,7 +11,7 @@ export class CountriesComponent implements OnInit {
 
   @Output() goQuiz;
 
-  time: number = 30;
+  time: number = 20;
   interval;
 
   constructor() { 
