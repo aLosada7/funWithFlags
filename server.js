@@ -31,7 +31,7 @@ app.post('/log', function(req,res) {
         "INSERT INTO public.log(id, edad, sexo, tiempocountries, tiempoquiz, aciertos, fallos, tiempo, pistasrestantes, preguntaspista, consecacert, consecfall) VALUES ('" + body.id + "','" + body.edad + "','" + body.sexo + "'," + body.tiempoCountries + "," + body.tiempoQuiz + "," + body.respuestasAcertadas + "," + body.respuestasFalladas + ",'" + body.date + "'," + body.pistasRestantes +"," + body.preguntasPista + "," + body.consecAcert + "," + body.consecFall + ");",
         (err, res) => {
             console.log(err, res);
-            pool.end();
+            //pool.end();
         }
       );
 });
