@@ -27,7 +27,8 @@ export class InvestigationComponent implements OnInit {
     respuestasAcertadas: '',
     respuestasFalladas: '',
     date: '',
-    pistasRestantes: ''
+    pistasRestantes: '',
+    preguntasPista: ''
   }
 
   constructor(private sesionService: SessionService) { 
@@ -109,7 +110,25 @@ export class InvestigationComponent implements OnInit {
          "foto":"tanzania.png",
          "show":false,
        "pista": "Encontraras mucha fauna en este país"
-      }
+      },
+      { 
+        "pais":"Okayama",
+        "foto":"okayama.png",
+        "show":false,
+      "pista": "Original de Japón"
+      },
+      { 
+        "pais":"Albania",
+        "foto":"albania.jpg",
+        "show":false,
+      "pista": "Grecia y otros países de este juego le hacen frontera."
+    },
+    { 
+      "pais":"Sri Lanka",
+      "foto":"srilanka.jpg",
+      "show":false,
+    "pista": "Isla asiática"
+  }
    ];
 
       let resultsNumbers=[];
@@ -119,7 +138,7 @@ export class InvestigationComponent implements OnInit {
       for (i  = 0; i < 9; i++){
         entro = false;
         while(!entro){
-          let number = Math.floor(Math.random() * 12);
+          let number = Math.floor(Math.random() * 15);
           if (resultsNumbers.indexOf(number) < 0) {
             resultsNumbers.push(number);
             entro = true;
@@ -140,7 +159,7 @@ export class InvestigationComponent implements OnInit {
       let resultsNumbers=[];
       for (i  = 0; i < 4; i++){
         while(!entro){
-          let number = Math.floor(Math.random() * 12);
+          let number = Math.floor(Math.random() * 15);
           if (resultsNumbers.indexOf(number) < 0) {
             posiblesRespuestas.push(number);
             break;
@@ -198,6 +217,7 @@ export class InvestigationComponent implements OnInit {
     this.sesionInfo.respuestasAcertadas = event.respuestasAcertadas;
     this.sesionInfo.respuestasFalladas = event.respuestasFalladas;
     this.sesionInfo.pistasRestantes = event.pistasRestantes;
+    this.sesionInfo.preguntasPista = event.preguntasPista;
 
     this.sesionInfo.date = new Date().toLocaleString();
 

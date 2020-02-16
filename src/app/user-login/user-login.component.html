@@ -26,6 +26,7 @@
             </form>
         </mat-card-content>
         <mat-card-actions>
+            <p *ngIf="wrongData">Asegurate de introducir bien toda la información. Gracias</p>
             <button mat-button color="primary" (click)="sendLogin()">Next</button>
         </mat-card-actions>
     </mat-card>

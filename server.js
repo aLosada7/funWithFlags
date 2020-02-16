@@ -19,13 +19,6 @@ const pool = new Pool({
 });
 
 app.get('/*', function(req,res) {
-    pool.query(
-        "INSERT INTO public.log(id, edad, sexo, tiempocountries, tiempoquiz, aciertos, fallos, tiempo, pistasrestantes) VALUES ('prueba','1','',14,14,14,14,'',2);",
-        (err, res) => {
-          console.log(err, res);
-          pool.end();
-        }
-      );
     res.sendFile(path.join(__dirname+'/dist/elearning-app/index.html'));
 });
 
@@ -35,21 +28,10 @@ app.post('/log', function(req,res) {
     let body = req.body;
 
     pool.query(
-        "INSERT INTO public.log(id, edad, sexo, tiempocountries, tiempoquiz, aciertos, fallos, tiempo, pistasrestantes) VALUES ('prueba','1','',14,14,14,14,'',2);",
-        (err, res) => {
-          console.log(err, res);
-          pool.end();
-        }
-      );
-
-    pool.query(
-        "INSERT INTO public.log(id, edad, sexo, tiempocountries, tiempoquiz, aciertos, fallos, tiempo, pistasrestantes) VALUES ('" + body.id + "','" + body.edad + "','" + body.sexo + "'," + body.tiempoCountries + "," + body.tiempoQuiz + "," + body.respuestasAcertadas + "," + body.respuestasFalladas + ",'" + body.date + "'," + body.pistasRestantes +");",
+        "INSERT INTO public.log(id, edad, sexo, tiempocountries, tiempoquiz, aciertos, fallos, tiempo, pistasrestantes, preguntaspista) VALUES ('" + body.id + "','" + body.edad + "','" + body.sexo + "'," + body.tiempoCountries + "," + body.tiempoQuiz + "," + body.respuestasAcertadas + "," + body.respuestasFalladas + ",'" + body.date + "'," + body.pistasRestantes +"," + body.preguntasPista + ");",
         (err, res) => {
             console.log(err, res);
             pool.end();
-            if(!err) {
-                res.status(200).json("Updated");
-            }
         }
       );
 });

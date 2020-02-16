@@ -17,7 +17,11 @@ export class QuizComponent implements OnInit {
   contadorFalladas: number = 0;
   showAnswers: boolean;
 
+  respuestas=[];
+
   pistas: number = 3;
+  preguntasPista = [];
+  preguntasConPista: number = 0;
   time: number = 0;
   interval;
 
@@ -71,7 +75,23 @@ export class QuizComponent implements OnInit {
     this.questions[8].answer = this.answersForm.get('question9').value.pais == this.questions[8].pais ? "correcta" : 
     "incorrecta. La respuesta correcta era " + this.questions[8].pais;
 
-    console.log(this.questions[0].pais)
+    this.respuestas.push(this.answersForm.get('question1').value.pais);
+    this.respuestas.push(this.answersForm.get('question2').value.pais);
+    this.respuestas.push(this.answersForm.get('question3').value.pais);
+    this.respuestas.push(this.answersForm.get('question4').value.pais);
+    this.respuestas.push(this.answersForm.get('question5').value.pais);
+    this.respuestas.push(this.answersForm.get('question6').value.pais);
+    this.respuestas.push(this.answersForm.get('question7').value.pais);
+    this.respuestas.push(this.answersForm.get('question8').value.pais);
+    this.respuestas.push(this.answersForm.get('question9').value.pais);
+
+    let i;
+    for(i = 0; i < 9; i++) {
+      if(this.respuestas[i] == this.questions[i].pais){
+        if(this.preguntasPista.find(element => element == i) >= 0 ) this.preguntasConPista++; 
+      }
+    }
+
     this.answersForm.get('question1').value.pais == this.questions[0].pais ? this.contadorAcertadas++ : this.contadorFalladas++;
     this.answersForm.get('question2').value.pais == this.questions[1].pais ? this.contadorAcertadas++ : this.contadorFalladas++;
     this.answersForm.get('question3').value.pais == this.questions[2].pais ? this.contadorAcertadas++ : this.contadorFalladas++;
@@ -84,17 +104,23 @@ export class QuizComponent implements OnInit {
 
     console.log(this.contadorAcertadas);
     console.log(this.contadorFalladas);
+    console.log("Preguntas con pista "+ this.preguntasConPista)
     console.log("Time quiz countries: " + this.time);
     let finalTime = this.time;
-    this.quizResult.emit({tiempoQuiz: finalTime, respuestasAcertadas: this.contadorAcertadas, respuestasFalladas: this.contadorFalladas, pistasRestantes: this.pistas});
+    this.quizResult.emit({tiempoQuiz: finalTime, 
+                      respuestasAcertadas: this.contadorAcertadas, 
+                      respuestasFalladas: this.contadorFalladas, 
+                      pistasRestantes: this.pistas,
+                      preguntasPista: this.preguntasConPista});
   }
 
-  unlockHint(event, question) {
+  unlockHint(event, question, number) {
     let individual = this.questions.filter((item) => item.pais == question.pais);
     if(this.pistas > 0){
       individual[0].show = true;
       this.pistas--;
     }
+    this.preguntasPista.push(number);
   }
 
 }

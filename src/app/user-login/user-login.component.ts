@@ -10,6 +10,8 @@ export class UserLoginComponent implements OnInit {
 
   @Output() loginResult;
 
+  wrongData: boolean;
+
   userForm = new FormGroup({
     id: new FormControl(''),
     edad: new FormControl(''),
@@ -36,7 +38,12 @@ export class UserLoginComponent implements OnInit {
     
     console.log(userData);
     
-    this.loginResult.emit({userData: userData});
+    if(userData.id != '' && userData.edad!=''){
+      this.loginResult.emit({userData: userData});
+    } else {
+      this.wrongData = true;
+    }
+      
   }
 
 }
