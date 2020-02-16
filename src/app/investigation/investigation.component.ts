@@ -177,7 +177,7 @@ export class InvestigationComponent implements OnInit {
       for (i  = 0; i < 12; i++){
         entro = false;
         while(!entro){
-          let number = Math.floor(Math.random() * 18);
+          let number = Math.floor(Math.random() * 21);
           if (resultsNumbers.indexOf(number) < 0) {
             resultsNumbers.push(number);
             entro = true;
@@ -196,7 +196,7 @@ export class InvestigationComponent implements OnInit {
       let resultsNumbers=[];
       for (i  = 0; i < 4; i++){
         while(!entro){
-          let number = Math.floor(Math.random() * 18);
+          let number = Math.floor(Math.random() * 21);
           if (posiblesRespuestas.indexOf(number) < 0) {
             posiblesRespuestas.push(number);
             break;
