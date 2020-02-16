@@ -54,6 +54,7 @@ export class QuizComponent implements OnInit {
         }else{
           if(sendQuiz == true) {
             this.sendQuiz();
+            this.time = 0;
             sendQuiz = false
           }
           
