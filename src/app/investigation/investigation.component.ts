@@ -224,6 +224,11 @@ export class InvestigationComponent implements OnInit {
     this.sesionService.sendRegister(this.sesionInfo);
 
     window.scrollTo(0, 0);
+
+    setTimeout(function() {
+      window.scrollTo(0,0);
+    }, 100);
+
   }
 
 }

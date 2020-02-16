@@ -17,6 +17,7 @@ export class UserResultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
   }
 
 }
