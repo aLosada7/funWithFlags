@@ -32,7 +32,6 @@ app.post('/log', function(req,res) {
         (err, res) => {
             console.log(err, res);
             //pool.end();
-            res.status(200);
         }
       );
 });
