@@ -30,7 +30,9 @@ export class InvestigationComponent implements OnInit {
     respuestasFalladas: '',
     date: '',
     pistasRestantes: '',
-    preguntasPista: ''
+    preguntasPista: '',
+    consecAcert: '',
+    consecFall: ''
   }
 
   constructor(private sesionService: SessionService) { 
@@ -160,7 +162,7 @@ export class InvestigationComponent implements OnInit {
       for (i  = 0; i < 4; i++){
         while(!entro){
           let number = Math.floor(Math.random() * 15);
-          if (resultsNumbers.indexOf(number) < 0) {
+          if (posiblesRespuestas.indexOf(number) < 0) {
             posiblesRespuestas.push(number);
             break;
           }
@@ -210,6 +212,8 @@ export class InvestigationComponent implements OnInit {
     this.sesionInfo.respuestasFalladas = event.respuestasFalladas;
     this.sesionInfo.pistasRestantes = event.pistasRestantes;
     this.sesionInfo.preguntasPista = event.preguntasPista;
+    this.sesionInfo.consecAcert = event.consecAcert;
+    this.sesionInfo.consecFall = event. consecFall;
 
     this.pistasUsadas = 3 - parseFloat(this.sesionInfo.pistasRestantes);;
 

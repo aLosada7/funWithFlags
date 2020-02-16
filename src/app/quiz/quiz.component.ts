@@ -52,8 +52,6 @@ export class QuizComponent implements OnInit {
   }
 
   sendQuiz() {
-    console.log(this.answersForm.get('question1').value.pais);
-
     this.showAnswers = true;
 
     this.questions[0].answer = this.answersForm.get('question1').value.pais == this.questions[0].pais ? "correcta" : 
@@ -86,11 +84,26 @@ export class QuizComponent implements OnInit {
     this.respuestas.push(this.answersForm.get('question9').value.pais);
 
     let i;
+    let consecAcert = 0, acert = 0, consecFall = 0, fall = 0;
     for(i = 0; i < 9; i++) {
       if(this.respuestas[i] == this.questions[i].pais){
         if(this.preguntasPista.find(element => element == i) >= 0 ) this.preguntasConPista++; 
       }
+
+      if(this.respuestas[i] == this.questions[i].pais){
+        acert++;
+        if(fall > consecFall) consecFall = fall;
+        fall = 0;
+      } else {
+        fall++;
+        if(acert > consecAcert) consecAcert = acert;
+        acert = 0;
+      }
     }
+    if(acert > consecAcert) consecAcert = acert;
+    if(fall > consecFall) consecFall = fall;
+
+    console.log("consec acert: "+ consecAcert + " fall " + consecFall);
 
     this.answersForm.get('question1').value.pais == this.questions[0].pais ? this.contadorAcertadas++ : this.contadorFalladas++;
     this.answersForm.get('question2').value.pais == this.questions[1].pais ? this.contadorAcertadas++ : this.contadorFalladas++;
@@ -111,7 +124,9 @@ export class QuizComponent implements OnInit {
                       respuestasAcertadas: this.contadorAcertadas, 
                       respuestasFalladas: this.contadorFalladas, 
                       pistasRestantes: this.pistas,
-                      preguntasPista: this.preguntasConPista});
+                      preguntasPista: this.preguntasConPista,
+                      consecAcert: consecAcert,
+                      consecFall: consecFall});
   }
 
   unlockHint(event, question, number) {
