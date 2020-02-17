@@ -16,4 +16,8 @@ export class SessionService {
     console.log(register);
     return this.http.post('/log', register).subscribe(res => console.log(res));
   }
+
+  logQuestions(questions: any){
+    return this.http.post('/logQuestion', questions).subscribe(res => console.log(res));
+  }
 }

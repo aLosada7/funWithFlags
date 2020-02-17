@@ -191,6 +191,18 @@ export class InvestigationComponent implements OnInit {
       this.questions.push(this.countries[resultsNumber])
     }
 
+    console.log(this.questions);
+
+    let paises = []
+    paises.push(this.sesionInfo.id)
+    for(let question of this.questions) {
+      paises.push(question.pais)
+    }
+
+    console.log(paises);
+
+    this.sesionService.logQuestions(this.questions);
+
     for(let question of this.questions) {
       let entro; let i;
       let posiblesRespuestas = [];
