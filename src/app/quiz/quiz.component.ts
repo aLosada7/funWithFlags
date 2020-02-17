@@ -128,18 +128,18 @@ export class QuizComponent implements OnInit {
 
     console.log(this.answersForm.get('question1').value.pais)
 
-    this.answersForm.get('question1').value.pais == this.questions[0].pais ? this.contadorAcertadas++ :  (this.answersForm.get('question1').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
-    this.answersForm.get('question2').value.pais == this.questions[1].pais ? this.contadorAcertadas++ : (this.answersForm.get('question2').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
-    this.answersForm.get('question3').value.pais == this.questions[2].pais ? this.contadorAcertadas++ : (this.answersForm.get('question3').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
-    this.answersForm.get('question4').value.pais == this.questions[3].pais ? this.contadorAcertadas++ : (this.answersForm.get('question4').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
-    this.answersForm.get('question5').value.pais == this.questions[4].pais ? this.contadorAcertadas++ : (this.answersForm.get('question5').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
-    this.answersForm.get('question6').value.pais == this.questions[5].pais ? this.contadorAcertadas++ : (this.answersForm.get('question6').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
-    this.answersForm.get('question7').value.pais == this.questions[6].pais ? this.contadorAcertadas++ : (this.answersForm.get('question7').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
-    this.answersForm.get('question8').value.pais == this.questions[7].pais ? this.contadorAcertadas++ : (this.answersForm.get('question8').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
-    this.answersForm.get('question9').value.pais == this.questions[8].pais ? this.contadorAcertadas++ : (this.answersForm.get('question9').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
-    this.answersForm.get('question10').value.pais == this.questions[9].pais ? this.contadorAcertadas++ : (this.answersForm.get('question10').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
-    this.answersForm.get('question11').value.pais == this.questions[10].pais ? this.contadorAcertadas++ : (this.answersForm.get('question11').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
-    this.answersForm.get('question12').value.pais == this.questions[11].pais ? this.contadorAcertadas++ : (this.answersForm.get('question12').value.pais == ""  ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question1').value.pais == this.questions[0].pais ? this.contadorAcertadas++ :  (this.answersForm.get('question1').value.pais != undefined  ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question2').value.pais == this.questions[1].pais ? this.contadorAcertadas++ : (this.answersForm.get('question2').value.pais != undefined  ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question3').value.pais == this.questions[2].pais ? this.contadorAcertadas++ : (this.answersForm.get('question3').value.pais != undefined  ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question4').value.pais == this.questions[3].pais ? this.contadorAcertadas++ : (this.answersForm.get('question4').value.pais != undefined  ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question5').value.pais == this.questions[4].pais ? this.contadorAcertadas++ : (this.answersForm.get('question5').value.pais != undefined  ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question6').value.pais == this.questions[5].pais ? this.contadorAcertadas++ : (this.answersForm.get('question6').value.pais != undefined  ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question7').value.pais == this.questions[6].pais ? this.contadorAcertadas++ : (this.answersForm.get('question7').value.pais != undefined ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question8').value.pais == this.questions[7].pais ? this.contadorAcertadas++ : (this.answersForm.get('question8').value.pais != undefined ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question9').value.pais == this.questions[8].pais ? this.contadorAcertadas++ : (this.answersForm.get('question9').value.pais != undefined ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question10').value.pais == this.questions[9].pais ? this.contadorAcertadas++ : (this.answersForm.get('question10').value.pais != undefined ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question11').value.pais == this.questions[10].pais ? this.contadorAcertadas++ : (this.answersForm.get('question11').value.pais != undefined  ? this.contadorFalladas++ : this.contadorNoConstestadas);
+    this.answersForm.get('question12').value.pais == this.questions[11].pais ? this.contadorAcertadas++ : (this.answersForm.get('question12').value.pais != undefined  ? this.contadorFalladas++ : this.contadorNoConstestadas);
 
 
     console.log(this.contadorAcertadas);
