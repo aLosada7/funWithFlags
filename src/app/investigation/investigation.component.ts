@@ -193,16 +193,6 @@ export class InvestigationComponent implements OnInit {
 
     console.log(this.questions);
 
-    let paises = []
-    paises.push(this.sesionInfo.id)
-    for(let question of this.questions) {
-      paises.push(question.pais)
-    }
-
-    console.log(paises);
-
-    this.sesionService.logQuestions(this.questions);
-
     for(let question of this.questions) {
       let entro; let i;
       let posiblesRespuestas = [];
@@ -246,6 +236,17 @@ export class InvestigationComponent implements OnInit {
   goQuiz(event) {
     this.showCountries = false;
     this.showQuiz = true;
+
+    let paises = []
+    console.log(this.sesionInfo.id)
+    paises.push(this.sesionInfo.id)
+    for(let question of this.questions) {
+      paises.push(question.pais)
+    }
+
+    this.sesionService.logQuestions(paises);
+
+    console.log(paises);
 
     this.sesionInfo.tiempoCountries = event.tiempoCountries;
 
