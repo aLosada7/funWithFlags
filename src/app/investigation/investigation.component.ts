@@ -32,7 +32,8 @@ export class InvestigationComponent implements OnInit {
     pistasRestantes: '',
     preguntasPista: '',
     consecAcert: '',
-    consecFall: ''
+    consecFall: '',
+    contadorNoConstestadas: ''
   }
 
   constructor(private sesionService: SessionService) { 
@@ -249,8 +250,9 @@ export class InvestigationComponent implements OnInit {
     this.sesionInfo.preguntasPista = event.preguntasPista;
     this.sesionInfo.consecAcert = event.consecAcert;
     this.sesionInfo.consecFall = event. consecFall;
+    this.sesionInfo.contadorNoConstestadas = event.contadorNoConstestadas;
 
-    this.pistasUsadas = 3 - parseFloat(this.sesionInfo.pistasRestantes);;
+    this.pistasUsadas = 3 - parseFloat(this.sesionInfo.pistasRestantes);
 
     this.sesionInfo.date = new Date().toLocaleString();
 
