@@ -33,7 +33,8 @@ export class InvestigationComponent implements OnInit {
     preguntasPista: '',
     consecAcert: '',
     consecFall: '',
-    contadorNoConstestadas: ''
+    contadorNoConstestadas: '',
+    respuesta: []
   }
 
   constructor(private sesionService: SessionService) { 
@@ -237,17 +238,6 @@ export class InvestigationComponent implements OnInit {
     this.showCountries = false;
     this.showQuiz = true;
 
-    let paises = []
-    console.log(this.sesionInfo.id)
-    paises.push(this.sesionInfo.id)
-    for(let question of this.questions) {
-      paises.push(question.pais)
-    }
-
-    this.sesionService.logQuestions(paises);
-
-    console.log(paises);
-
     this.sesionInfo.tiempoCountries = event.tiempoCountries;
 
     window.scrollTo(0, 0);
@@ -272,6 +262,22 @@ export class InvestigationComponent implements OnInit {
     console.log(this.sesionInfo)
 
     this.sesionService.sendRegister(this.sesionInfo);
+
+
+    let paises = []
+    console.log(this.sesionInfo.id)
+    paises.push(this.sesionInfo.id)
+    let i;
+
+    console.log(event.respuesta)
+    for(i  = 0; i < 12; i++) {
+      paises.push(this.questions[i].pais)
+      paises.push(event.respuesta[i])
+    }
+
+    console.log(paises);
+
+    this.sesionService.logQuestions(paises);
 
     window.scrollTo(0, 0);
 

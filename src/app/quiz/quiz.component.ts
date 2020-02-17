@@ -155,7 +155,8 @@ export class QuizComponent implements OnInit {
                       preguntasPista: this.preguntasConPista,
                       consecAcert: consecAcert,
                       consecFall: consecFall,
-                      contadorNoConstestadas: this.contadorNoConstestadas});
+                      contadorNoConstestadas: this.contadorNoConstestadas,
+                      respuesta: this.respuestas});
   }
 
   unlockHint(event, question, number) {
