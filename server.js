@@ -36,7 +36,7 @@ app.post('/log', function(req,res) {
       );
 });
 
-app.post('/logQuestion', function(req,res) {
+app.post('/questions', function(req,res) {
   console.log(req.body);
 
   let body = req.body;

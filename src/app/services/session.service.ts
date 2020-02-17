@@ -18,6 +18,6 @@ export class SessionService {
   }
 
   logQuestions(questions: any){
-    return this.http.post('/logQuestion', questions).subscribe(res => console.log(res));
+    return this.http.post('/questions', questions).subscribe(res => console.log(res));
   }
 }
