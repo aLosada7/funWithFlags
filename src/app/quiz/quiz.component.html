@@ -23,7 +23,7 @@
                         <img src="assets/flags/{{question.foto}}" class="component-2" height=120 width=140>
                     </div>
                     <div class="component-2">
-                        <button mat-raised-button color="warn" *ngIf="!showAnswers && !question.show" color="primary" (click)="unlockHint($event, question, i)">PISTA({{pistas}} restantes)<mat-icon>sentiment_satisfied_alt</mat-icon></button>
+                        <button mat-raised-button color="warn" *ngIf="!showAnswers && !question.show && pistas > 0" (click)="unlockHint($event, question, i)">PISTA({{pistas}} restantes)<mat-icon>sentiment_satisfied_alt</mat-icon></button>
                         <p *ngIf="question.show">{{ question.pista }}</p>
                         <mat-radio-group *ngIf="!showAnswers"
                             aria-labelledby="example-radio-group-label"
