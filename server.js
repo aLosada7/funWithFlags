@@ -42,7 +42,7 @@ app.post('/logQuestion', function(req,res) {
   let body = req.body;
 
   pool.query(
-      "INSERT INTO public.log(id, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12) VALUES ('" + body[0] + "','" + body[1] + "','" + body[2] + "','" + body[3] + "','" + body[4] + "','" + body[5] + "','" + body[6] + "','" + body[7] + "','" + body[8] + "','" + body[9] + "','" + body[10] + "','" + body[11] + "','" + body[12] + "');",
+      "INSERT INTO public.logQuestions(id, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12) VALUES ('" + body[0] + "','" + body[1] + "','" + body[2] + "','" + body[3] + "','" + body[4] + "','" + body[5] + "','" + body[6] + "','" + body[7] + "','" + body[8] + "','" + body[9] + "','" + body[10] + "','" + body[11] + "','" + body[12] + "');",
       (err, res) => {
           console.log(err, res);
           //pool.end();
