@@ -1,5 +1,7 @@
 # ElearningApp
 
+Small game in which you can try to guess flags from different countries. After the game, it gives you a puntuation.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
 ## Development server
